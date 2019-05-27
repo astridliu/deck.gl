@@ -24,7 +24,12 @@ import {
   PointCloudLayer,
   TextLayer
 } from '@deck.gl/layers';
-import {ContourLayer, ScreenGridLayer, GridLayer, HexagonLayer} from '@deck.gl/aggregation-layers';
+import {
+  ContourLayer,
+  ScreenGridLayer,
+  CPUGridLayer,
+  HexagonLayer
+} from '@deck.gl/aggregation-layers';
 import {H3HexagonLayer, H3ClusterLayer} from '@deck.gl/geo-layers';
 
 import * as h3 from 'h3-js';
@@ -830,7 +835,7 @@ export const TEST_CASES = [
     name: 'grid-lnglat',
     viewState: GRID_LAYER_INFO.viewState,
     layers: [
-      new GridLayer(
+      new CPUGridLayer(
         Object.assign({}, GRID_LAYER_INFO.props, {
           id: 'grid-lnglat',
           getColorValue,
@@ -844,7 +849,7 @@ export const TEST_CASES = [
     name: 'grid-lnglat-2',
     viewState: GRID_LAYER_INFO.viewState,
     layers: [
-      new GridLayer(
+      new CPUGridLayer(
         Object.assign({}, GRID_LAYER_INFO.props, {
           id: 'grid-lnglat',
           getColorWeight,
